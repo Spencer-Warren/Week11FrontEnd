@@ -1,0 +1,10 @@
+form > * {
+    margin: 10px;
+}
+
+form {
+    margin-top: 10px;
+}
+form button {
+    margin: 5px 0 0 7px;
+}
