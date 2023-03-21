@@ -12,9 +12,8 @@ export class RegisterComponent implements OnInit{
   registerForm!: FormGroup;
 
   constructor(private fb: FormBuilder, private service: RESTAPIService) { }
-  
+
   ngOnInit(): void {
-    console.log("ngOnInit() called");
     this.registerForm = new FormGroup({
       firstName: new FormControl <string> ('', [Validators.required, Validators.minLength(3)]),
       lastName: new FormControl <string> ('', [Validators.required, Validators.minLength(3)]),
@@ -26,8 +25,6 @@ export class RegisterComponent implements OnInit{
 
 
   onSubmit() {
-    console.log("onSubmit() called");
-
     if (this.registerForm.valid && this.passwordMatch) {
       let user: registerUser = new registerUser(this.registerForm.value.firstName, this.registerForm.value.lastName, this.registerForm.value.username, this.registerForm.value.password);
       console.log(user);

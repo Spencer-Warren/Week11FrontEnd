@@ -1,15 +1,7 @@
-<nav class="navbar navbar-expand-sm navbar-dark bg-primary">
-    <div class="container-fluid">
-        <a class="navbar-brand col" href="/">ToDo application</a>
-            <div class="navbar-nav">
-                <a class="nav-item nav-link" [routerLink]="areLinksEnabled ? 'home' : null">Home</a>
-                <a class="nav-item nav-link" [routerLink]="areLinksEnabled ? 'login' : null">Login</a>
-                <a class="nav-item nav-link" [routerLink]="areLinksEnabled ? 'register' : null">Register</a>
-                <a class="nav-item nav-link" [routerLink]="areLinksEnabled ? 'contact' : null">Contact</a>
-            </div>
-        </div>
-</nav>
 
-<div class="container-fuild ">
+<div class="background">
+    <app-nav></app-nav>
+<div class="container-fluid">
     <router-outlet></router-outlet>
+</div>
 </div>

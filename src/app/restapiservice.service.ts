@@ -17,7 +17,7 @@ export class RESTAPIService{
 
   // Register
   registerUser(user: registerUser) {
-    return this.http.post('http://localhost:8080/register', user, this.httpOptions);
+    return this.http.put('http://localhost:8080/tasks', user, this.httpOptions);
   }
 
   // Login
