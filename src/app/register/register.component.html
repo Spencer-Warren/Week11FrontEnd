@@ -1,39 +1,39 @@
 <div class="card m-5" style="max-width: 600px;">
     <div class="card-body p-4">
         <h2>Register</h2>
-        <form (ngSubmit)="onSubmit()" style="width: 90%;">
+        <form [formGroup]="registerForm" (ngSubmit)="onSubmit()" style="width: 90%;">
 
             <div class="form-group">
                 <label for="firstname">First Name</label>
-                <input type="text" class="form-control" id="firstname" placeholder="Enter first name" ng-model="firstname" name="firstname">
+                <input type="text" class="form-control" id="firstname" placeholder="Enter first name" formControlName="firstName" name="firstname">
+                <div *ngIf="firstName?.invalid && firstName?.touched" class="text-danger">First Name is Required!</div>
             </div>
             
             <div class="form-group">
                 <label for="lastname">Last Name</label>
-                <input type="text" class="form-control" id="lastname" placeholder="Enter last name" ng-model="lastname" name="lastname">
-            </div>
-            
-            <div class="form-group">
-                <label for="email">Email</label>
-                <input type="email" class="form-control" id="email" placeholder="Enter email" ng-model="email" name="email">
+                <input type="text" class="form-control" id="lastname" placeholder="Enter last name" formControlName="lastName" name="lastname">
+                <div *ngIf="lastName?.invalid && firstName?.touched" class="text-danger">Last Name is Required!</div>
             </div>
             
             <div class="form-group">
                 <label for="username">Username</label>
-                <input type="text" class="form-control" id="username" placeholder="Enter username" ng-model="username" name="username">
+                <input type="text" class="form-control" id="username" placeholder="Enter username" formControlName="username" name="username">
+                <div *ngIf="username?.invalid && username?.touched" class="text-danger">Username is Required!</div>
             </div>
             
             <div class="form-group">
                 <label for="password">Password</label>
-                <input type="password" class="form-control" id="password" placeholder="Enter password" ng-model="password" name="password">
+                <input type="password" class="form-control" id="password" placeholder="Enter password" formControlName="password" name="password">
+                <div *ngIf="password?.invalid && password?.touched" class="text-danger">Password is Required!</div>
             </div>
 
             <div class="form-group">
                 <label for="password2">Confirm Password</label>
-                <input type="password" class="form-control" id="password2" placeholder="Confirm password" ng-model="password2" name="password2">
+                <input type="password" class="form-control" id="password2" placeholder="Confirm password" formControlName="confirmPassword" name="password2">
+                <div *ngIf="confirmPassword?.invalid && confirmPassword?.touched" class="text-danger">Confirm Password is Required!</div>
+                <div *ngIf="!passwordMatch" class="text-danger">Passwords Must Match</div>
             </div>
-            
-            <button type="submit" class="btn btn-primary">Register</button>
+            <button type="submit" class="btn btn-primary" >Register</button>
         </form>
     </div>
 </div>

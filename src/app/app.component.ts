@@ -7,4 +7,8 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   areLinksEnabled: boolean = true;
+
+  toggleLinks() {
+    this.areLinksEnabled = !this.areLinksEnabled;
+  }
 }
