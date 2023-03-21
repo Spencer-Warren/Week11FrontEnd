@@ -1,1 +1,37 @@
-<p>tasks works!</p>
+<!-- <div *ngFor="let task of fakeTasks">
+    <div class="card m-5" style="max-width: 600px;">
+        <div class="card-body p-4">
+            <h2>{{task.title}}</h2>
+            <p>{{task.description}}</p>
+            <p>{{task.status}}</p>
+            <p>{{task.dueDate}}</p>
+        </div>
+    </div>
+</div> -->
+<div class="card p-3">
+    <h2>Tasks</h2>
+<table class="table table-light">
+    <thead>
+        <tr>
+            <th scope="col">Title</th>
+            <th scope="col">Description</th>
+            <th scope="col">Status</th>
+            <th scope="col">Due Date</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let task of fakeTasks">
+            <td>{{task.title}}</td>
+            <td>{{task.description}}</td>
+            <td>
+                <select class="form-control" id="status" formControlName="status" name="status">
+                    <option value="Not Started">Not Started</option>
+                    <option value="In Progress">In Progress</option>
+                    <option value="Completed">Completed</option>
+                </select>
+            </td>
+            <td>{{task.dueDate}}</td>
+        </tr>
+    </tbody>
+</table>
+</div>
