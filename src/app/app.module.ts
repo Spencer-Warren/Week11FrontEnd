@@ -14,6 +14,7 @@ import { TasksComponent } from './tasks/tasks.component';
 import { NavComponent } from './nav/nav.component';
 import { ProfileComponent } from './profile/profile.component';
 import { ProfileEditComponent } from './profile-edit/profile-edit.component';
+import { TaskEditComponent } from './task-edit/task-edit.component';
 
 
 @NgModule({
@@ -25,7 +26,8 @@ import { ProfileEditComponent } from './profile-edit/profile-edit.component';
     TasksComponent,
     NavComponent,
     ProfileComponent,
-    ProfileEditComponent
+    ProfileEditComponent,
+    TaskEditComponent
   ],
   imports: [
     BrowserModule,

@@ -1,4 +1,8 @@
 import { Component } from '@angular/core';
+import { Task } from '../classes/task';
+import { Router } from '@angular/router';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { RESTAPIService } from '../restapiservice.service';
 
 @Component({
   selector: 'app-tasks',
@@ -6,36 +10,23 @@ import { Component } from '@angular/core';
   styleUrls: ['./tasks.component.css']
 })
 export class TasksComponent {
+  tasks: Task[] = [];
+  
+  constructor(private router: Router, private service: RESTAPIService) { }
+  
+  getTasks() {
+    this.service.getTasks().subscribe((data: any) => {this.tasks = data});
+  }
 
-  constructor() { }
-  fakeTasks = [
-    {
-      id: 1,
-      title: 'Task 1',
-      description: 'Description 1',
-      status: 'Done',
-      dueDate: '2021-05-01'
-    },
-    {
-      id: 2,
-      title: 'Task 2',
-      description: 'Description 2',
-      status: 'In Progress',
-      dueDate: '2021-05-02'
-    },
-    {
-      id: 3,
-      title: 'Task 3',
-      description: 'Description 3',
-      status: 'In Progress',
-      dueDate: '2021-05-03'
-    },
-    {
-      id: 4,
-      title: 'Task 4',
-      description: 'Description 4',
-      status: 'In Progress',
-      dueDate: '2021-05-04'
-    }
+  fakeTasks: Task[] = [
+    new Task(1, 'Task 1', 'Description 1', 'To Do', '2021-05-01'),
+    new Task(2, 'Task 2', 'Description 2', 'To Do', '2021-05-02'),
+    new Task(3, 'Task 3', 'Description 3', 'To Do', '2021-05-03'),
+    new Task(4, 'Task 4', 'Description 4', 'To Do', '2021-05-04'),
+    new Task(5, 'Task 5', 'Description 5', 'To Do', '2021-05-05')
   ];
+
+  editTask(taskId: number) {
+    this.router.navigate(['/tasks/edit', taskId]);
+  }
 }

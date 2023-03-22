@@ -1,14 +1,4 @@
-<!-- <div *ngFor="let task of fakeTasks">
-    <div class="card m-5" style="max-width: 600px;">
-        <div class="card-body p-4">
-            <h2>{{task.title}}</h2>
-            <p>{{task.description}}</p>
-            <p>{{task.status}}</p>
-            <p>{{task.dueDate}}</p>
-        </div>
-    </div>
-</div> -->
-<div class="card p-3">
+<div class="card p-3 m-5">
     <h2>Tasks</h2>
 <table class="table table-light">
     <thead>
@@ -16,22 +6,16 @@
             <th scope="col">Title</th>
             <th scope="col">Description</th>
             <th scope="col">Status</th>
-            <th scope="col">Due Date</th>
+            <th scope="col" colspan="2">Due Date</th>
         </tr>
     </thead>
     <tbody>
         <tr *ngFor="let task of fakeTasks">
             <td>{{task.title}}</td>
             <td>{{task.description}}</td>
-            <td>
-                {{task.status}}
-                <!-- <select class="form-control" id="status" formControlName="status" name="status">
-                    <option value="Not Started">Not Started</option>
-                    <option value="In Progress">In Progress</option>
-                    <option value="Completed">Completed</option>
-                </select> -->
-            </td>
+            <td>{{task.status}}</td>
             <td>{{task.dueDate}}</td>
+            <td><button (click)="editTask(task.id)" class="btn btn-primary">Edit Task</button></td>
         </tr>
     </tbody>
 </table>
