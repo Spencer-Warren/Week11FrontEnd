@@ -18,7 +18,7 @@ export class RESTAPIService{
     headers: new HttpHeaders({
       'Content-Type': 'application/json',
       'Access-Control-Allow-Origin': '*',
-      'Access-Control-Allow-Methods': 'GET, POST, OPTIONS, PUT, PATCH, DELETE',
+      'Access-Control-Allow-Methods': 'GET, POST, OPTIONS, PUT, PATCH, DELETE'
     })
   }
 
@@ -26,7 +26,7 @@ export class RESTAPIService{
 
   // Register
   registerUser(user: registerUser) {
-    return this.http.put(this.url + '/tasks', user, this.httpOptions);
+    return this.http.put(this.url + '/register', user, this.httpOptions);
   }
 
   // Login
@@ -44,11 +44,12 @@ export class RESTAPIService{
     return this.http.put(this.url + '/profile/edit', user, this.httpOptions);
   }
 
-  // Get Tasks
+  // Get All Tasks
   getTasks(){
     return this.http.get(this.url + "/" + this.uid + '/tasks', this.httpOptions);
   }
   
+  // Create Task
   createTask(task: TaskNoId) {
     return this.http.put(this.url + "/" + this.uid + '/tasks', task, this.httpOptions);
   }
@@ -58,9 +59,14 @@ export class RESTAPIService{
     return this.http.get(this.url + "/" + this.uid + '/tasks/' + taskId, this.httpOptions);
   }
 
-  // updateTask
+  // Update Task
   updateTask(task: any){
     return this.http.put(this.url + "/" + this.uid + '/tasks/' + task.id, task, this.httpOptions);
+  }
+
+  // Delete Task
+  deleteTask(taskId: number){
+    return this.http.delete(this.url + "/" + this.uid + '/tasks/' + taskId, this.httpOptions);
   }
 
 }

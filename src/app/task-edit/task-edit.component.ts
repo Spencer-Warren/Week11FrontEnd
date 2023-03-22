@@ -61,6 +61,13 @@ export class TaskEditComponent {
       // navigate to the task page
       this.router.navigate(['/tasks']);
     }
-  
+  }
+
+  deleteTask() {
+    // delete the task from the database
+    this.service.deleteTask(this.taskId).subscribe((data: any) => {console.log(data)});
+
+    // navigate to the task page
+    this.router.navigate(['/tasks']);
   }
 }

@@ -14,6 +14,7 @@ const routes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'register', component: RegisterComponent },
   { path: 'login', component: LoginComponent },
+  { path: 'home', component: HomeComponent },
   { path: 'tasks', component: TasksComponent, canActivate: [AuthGuard] },
   { path: 'tasks/edit/:id', component: TaskEditComponent, canActivate: [AuthGuard]  },
   { path: 'profile', component: ProfileComponent, canActivate: [AuthGuard] },
