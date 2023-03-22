@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http'
 import { registerUser, loginUser, responseUser } from './classes/user';
-import { AppComponent } from './app.component';
 import { Observable } from 'rxjs';
 
 @Injectable({
@@ -11,7 +10,7 @@ export class RESTAPIService{
 
   url: string = "https://c8f68045-701e-4115-a353-49b9e4bf31e7.mock.pstmn.io";
 
-  constructor(private http: HttpClient, private app: AppComponent) { }
+  constructor(private http: HttpClient) { }
 
   httpOptions = {
     headers: new HttpHeaders({

@@ -8,16 +8,16 @@ import { TasksComponent } from './tasks/tasks.component';
 import { TaskEditComponent } from './task-edit/task-edit.component';
 import { ProfileComponent } from './profile/profile.component';
 import { ProfileEditComponent } from './profile-edit/profile-edit.component';
+import { AuthGuard } from './auth.guard';
 
 const routes: Routes = [
-  { path: '', redirectTo: '/home', pathMatch: 'full' },
-  { path: 'home', component: HomeComponent },
+  { path: '', component: HomeComponent },
   { path: 'register', component: RegisterComponent },
   { path: 'login', component: LoginComponent },
-  { path: 'tasks', component: TasksComponent },
-  { path: 'tasks/edit/:id', component: TaskEditComponent},
-  { path: 'profile', component: ProfileComponent},
-  { path: 'profile/edit', component: ProfileEditComponent},
+  { path: 'tasks', component: TasksComponent, canActivate: [AuthGuard] },
+  { path: 'tasks/edit/:id', component: TaskEditComponent, canActivate: [AuthGuard]  },
+  { path: 'profile', component: ProfileComponent, canActivate: [AuthGuard] },
+  { path: 'profile/edit', component: ProfileEditComponent, canActivate: [AuthGuard] },
 
 
 ];
@@ -26,4 +26,5 @@ const routes: Routes = [
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
+
 export class AppRoutingModule { }

@@ -10,7 +10,7 @@ export class NavComponent {
   constructor(private app: AppComponent) { }
 
   isLoggedIn() {
-    return localStorage.getItem('loggedin') == 'true';
+    return sessionStorage.getItem('loggedin') == 'true';
   }
 
   logout() {
