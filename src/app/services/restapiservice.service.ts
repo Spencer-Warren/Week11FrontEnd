@@ -2,11 +2,13 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http'
 import { registerUser, loginUser, responseUser } from '../classes/user';
 import { Observable } from 'rxjs';
+import { TaskNoId } from '../classes/task';
 
 @Injectable({
   providedIn: 'root'
 })
 export class RESTAPIService{
+
 
   url: string = "https://c8f68045-701e-4115-a353-49b9e4bf31e7.mock.pstmn.io";
 
@@ -45,6 +47,10 @@ export class RESTAPIService{
   // Get Tasks
   getTasks(){
     return this.http.get(this.url + "/" + this.uid + '/tasks', this.httpOptions);
+  }
+  
+  createTask(task: TaskNoId) {
+    return this.http.put(this.url + "/" + this.uid + '/tasks', task, this.httpOptions);
   }
 
   // Get Task

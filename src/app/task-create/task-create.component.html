@@ -1,0 +1,22 @@
+<div class="card p-3 m-5">
+    <h2>Task - edit</h2>
+    <form [formGroup]="taskCreateForm" (ngSubmit)="onSubmit()" class="form">
+        <div class="form-group">
+            <label for="title">Title</label>
+            <input type="text" class="form-control" id="title" placeholder="Enter title" formControlName="title" name="title">
+        </div>
+        <div class="form-group">
+            <label for="description">Description</label>
+            <input type="text" class="form-control" id="description" placeholder="Enter description" formControlName="description" name="description">
+        </div>
+        <div class="form-group">
+            <label for="status">Status</label>
+            <input type="text" class="form-control" id="status" placeholder="Enter status" formControlName="status" name="status">
+        </div>
+        <div class="form-group">
+            <label for="dueDate">Due Date</label>
+            <input type="text" class="form-control" id="dueDate" placeholder="Enter due date" formControlName="dueDate" name="dueDate">
+        </div>
+        <button type="submit" class="btn btn-primary mt-2">Submit Edits</button>
+    </form>
+</div>

@@ -13,3 +13,17 @@ export class Task {
         this.dueDate = dueDate;
     }
 }
+
+export class TaskNoId {
+    title: string = '';
+    description: string = '';
+    status: string = '';
+    dueDate: string = '';
+
+    constructor(title: string, description: string, status: string, dueDate: string) {
+        this.title = title;
+        this.description = description;
+        this.status = status;
+        this.dueDate = dueDate;
+    }
+}
