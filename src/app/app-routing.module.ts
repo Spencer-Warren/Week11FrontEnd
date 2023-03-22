@@ -9,6 +9,7 @@ import { TaskEditComponent } from './task-edit/task-edit.component';
 import { ProfileComponent } from './profile/profile.component';
 import { ProfileEditComponent } from './profile-edit/profile-edit.component';
 import { AuthGuard } from './services/auth.guard';
+import { TaskCreateComponent } from './task-create/task-create.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -17,6 +18,7 @@ const routes: Routes = [
   { path: 'home', component: HomeComponent },
   { path: 'tasks', component: TasksComponent, canActivate: [AuthGuard] },
   { path: 'tasks/edit/:id', component: TaskEditComponent, canActivate: [AuthGuard]  },
+  { path: 'tasks/create', component: TaskCreateComponent, canActivate: [AuthGuard]},
   { path: 'profile', component: ProfileComponent, canActivate: [AuthGuard] },
   { path: 'profile/edit', component: ProfileEditComponent, canActivate: [AuthGuard] }
 ];

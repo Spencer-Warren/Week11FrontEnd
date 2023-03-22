@@ -56,10 +56,11 @@ export class TaskEditComponent {
       let task: Task = new Task(this.taskId, this.taskEditForm.value.title, this.taskEditForm.value.description, this.taskEditForm.value.status, this.taskEditForm.value.dueDate);
 
       // update the task in the database
-      this.service.updateTask(task).subscribe((data: any) => {console.log(data)});
-
-      // navigate to the task page
-      this.router.navigate(['/tasks']);
+      this.service.updateTask(task).subscribe((data: any) => {
+        console.log(data);
+        // navigate to the task page
+        this.router.navigate(['/tasks']);
+      });
     }
   }
 

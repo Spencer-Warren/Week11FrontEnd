@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { responseUser } from './classes/user';
-import * as CryptoJS from 'crypto-js';
 
 
 @Component({
@@ -27,5 +26,9 @@ export class AppComponent {
     sessionStorage.setItem('firstname', '');
     sessionStorage.setItem('lastname', '');
     sessionStorage.setItem('loggedin', 'false');
+  }
+
+  get uid() {
+    return Number.parseInt(sessionStorage.getItem('userid') || '0');
   }
 }

@@ -11,10 +11,15 @@ import { RESTAPIService } from '../services/restapiservice.service';
 export class TasksComponent {
   tasks: Task[] = [];
   
-  constructor(private router: Router, private service: RESTAPIService) { }
+  constructor(private router: Router, private service: RESTAPIService) { this.getTasks();
+  console.log(this.tasks);}
   
   getTasks() {
     this.service.getTasks().subscribe((data: any) => {this.tasks = data});
+  }
+
+  createTask() {
+    this.router.navigate(['/tasks/create']);
   }
 
   fakeTasks: Task[] = [

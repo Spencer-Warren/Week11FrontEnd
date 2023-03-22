@@ -19,11 +19,13 @@ export class TaskNoId {
     description: string = '';
     status: string = '';
     dueDate: string = '';
+    userid: number = 0;
 
-    constructor(title: string, description: string, status: string, dueDate: string) {
+    constructor(title: string, description: string, status: string, dueDate: string, userid: number) {
         this.title = title;
         this.description = description;
         this.status = status;
         this.dueDate = dueDate;
+        this.userid = userid;
     }
 }

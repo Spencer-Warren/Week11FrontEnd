@@ -1,5 +1,5 @@
 <div class="card p-3 m-5">
-    <h2>Task - edit</h2>
+    <h2>Task - Create</h2>
     <form [formGroup]="taskCreateForm" (ngSubmit)="onSubmit()" class="form">
         <div class="form-group">
             <label for="title">Title</label>
@@ -17,6 +17,6 @@
             <label for="dueDate">Due Date</label>
             <input type="text" class="form-control" id="dueDate" placeholder="Enter due date" formControlName="dueDate" name="dueDate">
         </div>
-        <button type="submit" class="btn btn-primary mt-2">Submit Edits</button>
+        <button type="submit" class="btn btn-primary mt-2">Submit</button>
     </form>
 </div>

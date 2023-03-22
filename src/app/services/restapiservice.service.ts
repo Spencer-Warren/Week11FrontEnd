@@ -22,7 +22,7 @@ export class RESTAPIService{
     })
   }
 
-  uid: string = localStorage.getItem('userid') || '';
+  uid: string = sessionStorage.getItem('userid') || '';
 
   // Register
   registerUser(user: registerUser) {
@@ -61,7 +61,7 @@ export class RESTAPIService{
 
   // Update Task
   updateTask(task: any){
-    return this.http.put(this.url + "/" + this.uid + '/tasks/', task, this.httpOptions);
+    return this.http.put(this.url + "/" + this.uid + '/tasks', task, this.httpOptions);
   }
 
   // Delete Task

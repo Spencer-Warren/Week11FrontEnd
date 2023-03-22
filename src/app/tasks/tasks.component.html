@@ -1,22 +1,24 @@
 <div class="card p-3 m-5">
     <h2>Tasks</h2>
-<table class="table table-light">
-    <thead>
-        <tr>
-            <th scope="col">Title</th>
-            <th scope="col">Description</th>
-            <th scope="col">Status</th>
-            <th scope="col" colspan="2">Due Date</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr *ngFor="let task of fakeTasks">
-            <td>{{task.title}}</td>
-            <td>{{task.description}}</td>
-            <td>{{task.status}}</td>
-            <td>{{task.dueDate}}</td>
-            <td><button (click)="editTask(task.id)" class="btn btn-primary">Edit Task</button></td>
-        </tr>
-    </tbody>
-</table>
+    <table class="table table-light">
+        <thead>
+            <tr>
+                <th scope="col">Title</th>
+                <th scope="col">Description</th>
+                <th scope="col">Status</th>
+                <th scope="col" colspan="2">Due Date</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let task of tasks">
+                <td>{{task.title}}</td>
+                <td>{{task.description}}</td>
+                <td>{{task.status}}</td>
+                <td>{{task.dueDate}}</td>
+                <td><button (click)="editTask(task.id)" class="btn btn-primary">Edit Task</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <button class="btn btn-primary col-1" (click)="createTask()">Create a Task</button>
 </div>
