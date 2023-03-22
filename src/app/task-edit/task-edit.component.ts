@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Task } from '../classes/task';
-import { RESTAPIService } from '../restapiservice.service';
+import { RESTAPIService } from '../services/restapiservice.service';
 
 @Component({
   selector: 'app-task-edit',

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { responseUser } from '../classes/user';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { RESTAPIService } from '../restapiservice.service';
+import { RESTAPIService } from '../services/restapiservice.service';
 import { Router } from '@angular/router';
 
 @Component({

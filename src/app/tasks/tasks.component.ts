@@ -1,8 +1,7 @@
 import { Component } from '@angular/core';
 import { Task } from '../classes/task';
 import { Router } from '@angular/router';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { RESTAPIService } from '../restapiservice.service';
+import { RESTAPIService } from '../services/restapiservice.service';
 
 @Component({
   selector: 'app-tasks',

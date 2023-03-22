@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators, } from '@angular/forms';
-import { RESTAPIService } from '../restapiservice.service';
+import { RESTAPIService } from '../services/restapiservice.service';
 import { loginUser } from '../classes/user';
 import { Router } from '@angular/router';
 import { AppComponent } from '../app.component';
-import { EncryptService } from '../encrypt.service';
+import { EncryptService } from '../services/encrypt.service';
 
 
 @Component({

@@ -8,7 +8,7 @@ import { TasksComponent } from './tasks/tasks.component';
 import { TaskEditComponent } from './task-edit/task-edit.component';
 import { ProfileComponent } from './profile/profile.component';
 import { ProfileEditComponent } from './profile-edit/profile-edit.component';
-import { AuthGuard } from './auth.guard';
+import { AuthGuard } from './services/auth.guard';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -17,9 +17,7 @@ const routes: Routes = [
   { path: 'tasks', component: TasksComponent, canActivate: [AuthGuard] },
   { path: 'tasks/edit/:id', component: TaskEditComponent, canActivate: [AuthGuard]  },
   { path: 'profile', component: ProfileComponent, canActivate: [AuthGuard] },
-  { path: 'profile/edit', component: ProfileEditComponent, canActivate: [AuthGuard] },
-
-
+  { path: 'profile/edit', component: ProfileEditComponent, canActivate: [AuthGuard] }
 ];
 
 @NgModule({

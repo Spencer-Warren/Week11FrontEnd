@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http'
-import { registerUser, loginUser, responseUser } from './classes/user';
+import { registerUser, loginUser, responseUser } from '../classes/user';
 import { Observable } from 'rxjs';
 
 @Injectable({
