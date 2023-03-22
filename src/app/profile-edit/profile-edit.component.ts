@@ -10,10 +10,10 @@ import { Router } from '@angular/router';
   styleUrls: []
 })
 export class ProfileEditComponent implements OnInit{
-  firstname: string = localStorage.getItem('firstname') || '';
-  lastname: string = localStorage.getItem('lastname') || '';
-  username: string = localStorage.getItem('username') || '';
-  userid: string = localStorage.getItem('userid') || '';
+  firstname: string = sessionStorage.getItem('firstname') || '';
+  lastname: string = sessionStorage.getItem('lastname') || '';
+  username: string = sessionStorage.getItem('username') || '';
+  userid: string = sessionStorage.getItem('userid') || '';
 
   profileForm!: FormGroup;
 

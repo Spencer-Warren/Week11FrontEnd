@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup, Validators, } from '@angular/forms';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { FormBuilder, FormControl, FormGroup, NgForm, Validators, } from '@angular/forms';
 import { RESTAPIService } from '../services/restapiservice.service';
 import { registerUser } from '../classes/user';
 import { EncryptService } from '../services/encrypt.service';
@@ -35,9 +35,15 @@ export class RegisterComponent implements OnInit{
       let user: registerUser = new registerUser(this.registerForm.value.firstName, this.registerForm.value.lastName, this.registerForm.value.username, this.encryptedPassword);
       this.service.registerUser(user).subscribe((data: any) => {
         console.log(data);
+        this.success();
       });
     }
 
+  }
+
+  success() {
+    alert("Registration successful!<br>You can now log in.");
+    this.registerForm.reset();
   }
 
   get firstName(){

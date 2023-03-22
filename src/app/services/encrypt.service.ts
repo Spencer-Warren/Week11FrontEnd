@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import * as crypt from 'crypto-js';
 
 @Injectable({
   providedIn: 'root'
@@ -9,10 +10,10 @@ export class EncryptService {
   constructor() { }
 
   encrypt(data: string) {
-    return CryptoJS.AES.encrypt(data, this.key).toString();
+    return crypt.SHA256(data).toString();
   }
 
   decrypt(data: string) {
-    return CryptoJS.AES.decrypt(data, this.key).toString(CryptoJS.enc.Utf8);
+    return crypt.AES.decrypt(data, this.key).toString(crypt.enc.Utf8);
   }
 }

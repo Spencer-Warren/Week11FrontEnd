@@ -29,12 +29,14 @@ export class LoginComponent implements OnInit {
     if (this.loginForm.valid) {
       this.encryptedPassword = this.encryption.encrypt(this.loginForm.value.password);
       let user: loginUser = new loginUser(this.loginForm.value.username, this.encryptedPassword);
-
       this.service.loginUser(user).subscribe( 
         isValid => {
           if (isValid) {
             this.getUser();
             sessionStorage.setItem('token', this.loginForm.value.username + " : " + this.loginForm.value.password);
+          }
+          else {
+            console.log("Invalid login");
           }
         });
 
@@ -43,6 +45,7 @@ export class LoginComponent implements OnInit {
 
   getUser() {
     this.service.getUser(this.loginForm.value.username).subscribe((data: any) => {
+      console.log(data);
       this.app.login(data);
       this.router.navigate(['/tasks']);
     });

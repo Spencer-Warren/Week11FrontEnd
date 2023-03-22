@@ -7,10 +7,10 @@ import { Router } from '@angular/router';
   styleUrls: ['./profile.component.css']
 })
 export class ProfileComponent {
-  firstname: string = localStorage.getItem('firstname') || '';
-  lastname: string = localStorage.getItem('lastname') || '';
-  username: string = localStorage.getItem('username') || '';
-  userid: string = localStorage.getItem('userid') || '';
+  firstname: string = sessionStorage.getItem('firstname') || '';
+  lastname: string = sessionStorage.getItem('lastname') || '';
+  username: string = sessionStorage.getItem('username') || '';
+  userid: string = sessionStorage.getItem('userid') || '';
   
 
   constructor(private router: Router) { }

@@ -10,7 +10,7 @@ import { TaskNoId } from '../classes/task';
 export class RESTAPIService{
 
 
-  url: string = "https://c8f68045-701e-4115-a353-49b9e4bf31e7.mock.pstmn.io";
+  url: string = "http://localhost:8080";
 
   constructor(private http: HttpClient) { }
 
@@ -41,7 +41,7 @@ export class RESTAPIService{
 
   // Update User
   updateUser(user: responseUser) {
-    return this.http.put(this.url + '/profile/edit', user, this.httpOptions);
+    return this.http.post(this.url + '/profile/edit', user, this.httpOptions);
   }
 
   // Get All Tasks
@@ -51,7 +51,7 @@ export class RESTAPIService{
   
   // Create Task
   createTask(task: TaskNoId) {
-    return this.http.put(this.url + "/" + this.uid + '/tasks', task, this.httpOptions);
+    return this.http.post(this.url + "/" + this.uid + '/tasks', task, this.httpOptions);
   }
 
   // Get Task
@@ -61,7 +61,7 @@ export class RESTAPIService{
 
   // Update Task
   updateTask(task: any){
-    return this.http.put(this.url + "/" + this.uid + '/tasks/' + task.id, task, this.httpOptions);
+    return this.http.put(this.url + "/" + this.uid + '/tasks/', task, this.httpOptions);
   }
 
   // Delete Task
