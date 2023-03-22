@@ -24,11 +24,12 @@
             <td>{{task.title}}</td>
             <td>{{task.description}}</td>
             <td>
-                <select class="form-control" id="status" formControlName="status" name="status">
+                {{task.status}}
+                <!-- <select class="form-control" id="status" formControlName="status" name="status">
                     <option value="Not Started">Not Started</option>
                     <option value="In Progress">In Progress</option>
                     <option value="Completed">Completed</option>
-                </select>
+                </select> -->
             </td>
             <td>{{task.dueDate}}</td>
         </tr>

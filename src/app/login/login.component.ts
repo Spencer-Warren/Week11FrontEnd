@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators, } from '@angular/forms';
 import { RESTAPIService } from '../restapiservice.service';
-import { loginUser} from '../classes/user';
+import { loginUser, responseUser} from '../classes/user';
+import { Router } from '@angular/router';
+import { AppComponent } from '../app.component';
 
 @Component({
   selector: 'app-login',
@@ -11,7 +13,7 @@ import { loginUser} from '../classes/user';
 export class LoginComponent implements OnInit{
   loginForm!: FormGroup;
 
-  constructor(private fb: FormBuilder, private service: RESTAPIService) { }
+  constructor(private app: AppComponent, private service: RESTAPIService, private router: Router) { }
 
   ngOnInit(): void {
     this.loginForm = new FormGroup({
@@ -21,14 +23,19 @@ export class LoginComponent implements OnInit{
   }
 
   onSubmit() {
-    console.log(this.loginForm.value);
     if (this.loginForm.valid) {
+
       let user: loginUser = new loginUser(this.loginForm.value.username, this.loginForm.value.password);
-      this.service.loginUser(user).subscribe((data: any) => {
-        console.log(data);
-      });
+
+      this.service.loginUser(user).subscribe(
+        (data: responseUser) => {
+          this.app.login(data);
+          this.router.navigate(['/tasks']);
+        }
+      );
     }
   }
+
 
   get username() {
     return this.loginForm.get('username');

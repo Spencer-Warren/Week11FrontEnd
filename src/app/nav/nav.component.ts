@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { AppComponent } from '../app.component';
 
 @Component({
   selector: 'app-nav',
@@ -6,6 +7,13 @@ import { Component } from '@angular/core';
   styleUrls: ['./nav.component.css']
 })
 export class NavComponent {
-  loggedIn: boolean = false;
+  constructor(private app: AppComponent) { }
 
+  isLoggedIn() {
+    return localStorage.getItem('loggedin') == 'true';
+  }
+
+  logout() {
+    this.app.logout();
+  }
 }

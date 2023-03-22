@@ -12,6 +12,9 @@ import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { TasksComponent } from './tasks/tasks.component';
 import { NavComponent } from './nav/nav.component';
+import { ProfileComponent } from './profile/profile.component';
+import { ProfileEditComponent } from './profile-edit/profile-edit.component';
+
 
 @NgModule({
   declarations: [
@@ -20,7 +23,9 @@ import { NavComponent } from './nav/nav.component';
     LoginComponent,
     RegisterComponent,
     TasksComponent,
-    NavComponent
+    NavComponent,
+    ProfileComponent,
+    ProfileEditComponent
   ],
   imports: [
     BrowserModule,
