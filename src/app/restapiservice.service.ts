@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http'
 import { registerUser, loginUser, responseUser } from './classes/user';
 import { AppComponent } from './app.component';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -29,9 +30,15 @@ export class RESTAPIService{
 
   // Login
   loginUser(user: loginUser) {
-    return this.http.put<responseUser>(this.url + '/login', user, this.httpOptions);
+    return this.http.post<Observable<boolean>>(this.url + '/login', user, this.httpOptions);
   }
 
+  // Get User
+  getUser(username: string) {
+    return this.http.get(this.url + '/user/' + username, this.httpOptions);
+  }
+
+  // Update User
   updateUser(user: responseUser) {
     return this.http.put(this.url + '/profile/edit', user, this.httpOptions);
   }

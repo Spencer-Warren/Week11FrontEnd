@@ -2,8 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators, } from '@angular/forms';
 import { RESTAPIService } from '../restapiservice.service';
 import { registerUser } from '../classes/user';
-import * as CryptoJS from 'crypto-js';
-import { AppComponent } from '../app.component';
+import { EncryptService } from '../encrypt.service';
 
 
 @Component({
@@ -16,7 +15,7 @@ export class RegisterComponent implements OnInit{
   registerForm!: FormGroup;
   encryptedPassword!: string;
 
-  constructor(private fb: FormBuilder, private service: RESTAPIService) { }
+  constructor(private fb: FormBuilder, private service: RESTAPIService, private encrypt: EncryptService) { }
 
   ngOnInit(): void {
     this.registerForm = new FormGroup({
@@ -31,10 +30,9 @@ export class RegisterComponent implements OnInit{
 
   onSubmit() {
     if (this.registerForm.valid && this.passwordMatch) {
-      // this.encryptedPassword = CryptoJS.AES.encrypt(this.password, AppComponent).toString();
+      this.encryptedPassword = this.encrypt.encrypt(this.registerForm.value.password);
 
-      let user: registerUser = new registerUser(this.registerForm.value.firstName, this.registerForm.value.lastName, this.registerForm.value.username, this.registerForm.value.password);
-      console.log(user);
+      let user: registerUser = new registerUser(this.registerForm.value.firstName, this.registerForm.value.lastName, this.registerForm.value.username, this.encryptedPassword);
       this.service.registerUser(user).subscribe((data: any) => {
         console.log(data);
       });

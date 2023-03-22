@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { responseUser } from './classes/user';
+import * as CryptoJS from 'crypto-js';
+
 
 @Component({
   selector: 'app-root',
@@ -8,28 +10,22 @@ import { responseUser } from './classes/user';
 })
 
 export class AppComponent {
-  key: string = "dre56%3cbbtd3a2efnyftg@G";
 
-  constructor() {
-  }
-
-  getKey() {
-    return this.key;
-  }
+  constructor() { }
 
   login(data: responseUser) {
-    localStorage.setItem('userid', data.userid);
-    localStorage.setItem('username', data.username);
-    localStorage.setItem('firstname', data.firstname);
-    localStorage.setItem('lastname', data.lastname);
-    localStorage.setItem('loggedin', 'true');
+    sessionStorage.setItem('userid', data.userid);
+    sessionStorage.setItem('username', data.username);
+    sessionStorage.setItem('firstname', data.firstname);
+    sessionStorage.setItem('lastname', data.lastname);
+    sessionStorage.setItem('loggedin', 'true');
   }
 
   logout() {
-    localStorage.setItem('userid', '');
-    localStorage.setItem('username', '');
-    localStorage.setItem('firstname', '');
-    localStorage.setItem('lastname', '');
-    localStorage.setItem('loggedin', 'false');
+    sessionStorage.setItem('userid', '');
+    sessionStorage.setItem('username', '');
+    sessionStorage.setItem('firstname', '');
+    sessionStorage.setItem('lastname', '');
+    sessionStorage.setItem('loggedin', 'false');
   }
 }

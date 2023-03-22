@@ -40,15 +40,15 @@ export class ProfileEditComponent implements OnInit{
       let user: responseUser = new responseUser(this.profileForm.value.firstName, this.profileForm.value.lastName, this.profileForm.value.username, this.userid);
       console.log(user);
       this.service.updateUser(user).subscribe((data: any) => {});
-      this.updateLocalStorage();
+      this.updateSessionStorage();
       this.router.navigate(['/profile']);
     }
   }
 
-  updateLocalStorage() {
-    localStorage.setItem('firstname', this.profileForm.value.firstName);
-    localStorage.setItem('lastname', this.profileForm.value.lastName);
-    localStorage.setItem('username', this.profileForm.value.username);
+  updateSessionStorage() {
+    sessionStorage.setItem('firstname', this.profileForm.value.firstName);
+    sessionStorage.setItem('lastname', this.profileForm.value.lastName);
+    sessionStorage.setItem('username', this.profileForm.value.username);
   }
 
 
