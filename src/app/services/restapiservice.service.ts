@@ -10,7 +10,7 @@ import { TaskNoId } from '../classes/task';
 export class RESTAPIService{
 
 
-  url: string = "http://localhost:5000/api";
+  url: string = "http://gensparkweek11-env.eba-mybnyvfw.us-east-1.elasticbeanstalk.com/api";
 
   constructor(private http: HttpClient) { }
 
