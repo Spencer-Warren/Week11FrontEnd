@@ -45,7 +45,6 @@ export class LoginComponent implements OnInit {
 
   getUser() {
     this.service.getUser(this.loginForm.value.username).subscribe((data: any) => {
-      console.log(data);
       this.app.login(data);
       this.router.navigate(['/tasks']);
     });

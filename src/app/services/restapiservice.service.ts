@@ -10,7 +10,7 @@ import { TaskNoId } from '../classes/task';
 export class RESTAPIService{
 
 
-  url: string = "http://localhost:8080";
+  url: string = "http://localhost:5000/api";
 
   constructor(private http: HttpClient) { }
 
@@ -21,9 +21,9 @@ export class RESTAPIService{
       'Access-Control-Allow-Methods': 'GET, POST, OPTIONS, PUT, PATCH, DELETE'
     })
   }
-
-  uid: string = sessionStorage.getItem('userid') || '';
-
+  get uid () {
+    return sessionStorage.getItem('userid');
+  }
   // Register
   registerUser(user: registerUser) {
     return this.http.put(this.url + '/register', user, this.httpOptions);
