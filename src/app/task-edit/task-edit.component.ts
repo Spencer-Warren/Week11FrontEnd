@@ -44,7 +44,7 @@ export class TaskEditComponent {
         title: this.task.title,
         description: this.task.description,
         status: this.task.status,
-        dueDate: this.task.dueDate
+        dueDate: new Date(this.task.dueDate)
       });
 
     });
@@ -52,8 +52,10 @@ export class TaskEditComponent {
 
   onSubmit() {
     if (this.taskEditForm.valid) {
+      const newDate = new Date(this.taskEditForm.value.dueDate).toLocaleDateString();
+
       // create a new task object
-      let task: Task = new Task(this.taskId, this.taskEditForm.value.title, this.taskEditForm.value.description, this.taskEditForm.value.status, this.taskEditForm.value.dueDate);
+      let task: Task = new Task(this.taskId, this.taskEditForm.value.title, this.taskEditForm.value.description, this.taskEditForm.value.status, newDate);
 
       // update the task in the database
       this.service.updateTask(task).subscribe((data: any) => {
@@ -68,6 +70,11 @@ export class TaskEditComponent {
     // delete the task from the database
     this.service.deleteTask(this.taskId).subscribe((data: any) => {console.log(data)});
 
+    // navigate to the task page
+    this.router.navigate(['/tasks']);
+  }
+
+  back() {
     // navigate to the task page
     this.router.navigate(['/tasks']);
   }
