@@ -3,6 +3,7 @@ import { FormBuilder, FormControl, FormGroup, NgForm, Validators, } from '@angul
 import { RESTAPIService } from '../services/restapiservice.service';
 import { registerUser } from '../classes/user';
 import { EncryptService } from '../services/encrypt.service';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -15,7 +16,7 @@ export class RegisterComponent implements OnInit{
   registerForm!: FormGroup;
   encryptedPassword!: string;
 
-  constructor(private fb: FormBuilder, private service: RESTAPIService, private encrypt: EncryptService) { }
+  constructor(private fb: FormBuilder, private service: RESTAPIService, private encrypt: EncryptService, private router: Router) { }
 
   ngOnInit(): void {
     this.registerForm = new FormGroup({
@@ -41,8 +42,9 @@ export class RegisterComponent implements OnInit{
   }
 
   success() {
-    alert("Registration successful!<br>You can now log in.");
+    alert("Registration successful! You can now log in.");
     this.registerForm.reset();
+    this.router.navigate(['/login']);
   }
 
   get firstName(){

@@ -37,17 +37,17 @@ import { MatInputModule } from '@angular/material/input';
   ],
   imports: [
     BrowserModule,
-    ReactiveFormsModule,
     AppRoutingModule,
     CommonModule,
+    ReactiveFormsModule,
+    FormsModule,
     HttpClientModule,
     NoopAnimationsModule,
     MatNativeDateModule,
     MatFormFieldModule,
     MatDatepickerModule,
     MatIconModule,
-    MatInputModule,
-    FormsModule
+    MatInputModule
   ],
   providers: [],
   bootstrap: [AppComponent]

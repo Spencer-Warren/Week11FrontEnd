@@ -15,7 +15,8 @@
                 <td>{{task.description}}</td>
                 <td>{{task.status}}</td>
                 <td>{{task.dueDate}}</td>
-                <td><button (click)="editTask(task.id)" class="btn btn-primary">Edit Task</button>
+                <td><button (click)="editTask(task.id)" class="btn btn-primary me-3">Edit Task</button>
+                    <button (click)="deleteTask(task.id)" class="btn btn-danger">Delete Task</button>
                 </td>
             </tr>
         </tbody>

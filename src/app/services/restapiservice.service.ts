@@ -10,7 +10,8 @@ import { TaskNoId } from '../classes/task';
 export class RESTAPIService{
 
 
-  url: string = "http://gensparkweek11-env.eba-mybnyvfw.us-east-1.elasticbeanstalk.com/api";
+  url: string = "http://Gensparkweek11-env.eba-mybnyvfw.us-east-1.elasticbeanstalk.com/api";
+
 
   constructor(private http: HttpClient) { }
 
@@ -24,6 +25,7 @@ export class RESTAPIService{
   get uid () {
     return sessionStorage.getItem('userid');
   }
+
   // Register
   registerUser(user: registerUser) {
     return this.http.put(this.url + '/register', user, this.httpOptions);
@@ -42,6 +44,11 @@ export class RESTAPIService{
   // Update User
   updateUser(user: responseUser) {
     return this.http.post(this.url + '/profile/edit', user, this.httpOptions);
+  }
+
+  // Delete User
+  deleteUser(userId: string) {
+    return this.http.delete(this.url + '/profile/' + userId, this.httpOptions);
   }
 
   // Get All Tasks

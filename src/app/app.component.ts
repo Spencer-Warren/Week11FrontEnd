@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { responseUser } from './classes/user';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -10,7 +11,7 @@ import { responseUser } from './classes/user';
 
 export class AppComponent {
 
-  constructor() { }
+  constructor(private router: Router) { }
 
   login(data: responseUser) {
     sessionStorage.setItem('userid', data.userid);
@@ -26,6 +27,7 @@ export class AppComponent {
     sessionStorage.setItem('firstname', '');
     sessionStorage.setItem('lastname', '');
     sessionStorage.setItem('loggedin', 'false');
+    this.router.navigate(['/']);
   }
 
   get uid() {

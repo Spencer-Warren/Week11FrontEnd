@@ -26,4 +26,8 @@ export class TasksComponent {
   editTask(taskId: number) {
     this.router.navigate(['/tasks/edit', taskId]);
   }
+
+  deleteTask(taskId: number) {
+    this.service.deleteTask(taskId).subscribe((data: any) => { this.getTasks() });
+  }
 }
